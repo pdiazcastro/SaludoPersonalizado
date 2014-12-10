@@ -35,17 +35,25 @@ public class MyActivity extends Activity {
             @Override
             public void onClick(View v) {
                 EditText text = (EditText) findViewById(R.id.entry);
-                String salutation = null;
+                String saludo, saludoHey = null;
                 String enteredName = text.getText().toString();
 
                 RadioGroup radio = (RadioGroup) findViewById(R.id.RadioGroup01);
 
 
                 if (R.id.rdbSra == (radio.getCheckedRadioButtonId())) {
-                    //para sra
-                    salutation = getResources().getString(R.string.saludoSra);
+                    saludo = getResources().getString(R.string.saludoSra);
                 } else {
-                    salutation = getResources().getString(R.string.saludoSr);
+                    saludo = getResources().getString(R.string.saludoSr);
+                }
+
+                RadioGroup radio2 = (RadioGroup) findViewById(R.id.RadioGroup02);
+
+
+                if (R.id.rdbHola == (radio2.getCheckedRadioButtonId())) {
+                    saludoHey = getResources().getString(R.string.saludoHola);
+                } else {
+                    saludoHey = getResources().getString(R.string.saludoAdios);
                 }
 
                 if (text.getText().toString().isEmpty()) {
@@ -56,10 +64,10 @@ public class MyActivity extends Activity {
 
                 }
 
-                salutation = getResources().getString(R.string.hello) + " " + salutation + " " + enteredName;
+                saludo = saludoHey + " " + saludo + " " + enteredName;
 
                 Intent intent = new Intent(MyActivity.this, Saludo.class);
-                intent.putExtra("salutation", salutation);
+                intent.putExtra("saludo", saludo);
                 startActivity(intent);
             }
         });
