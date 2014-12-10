@@ -14,9 +14,9 @@ public class Saludo extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_saludo);
 
-        String salutation = getIntent().getExtras().getString("salutation");
+        String saludo = getIntent().getExtras().getString("saludo");
         TextView out = (TextView)findViewById(R.id.out);
-        out.setText(salutation);
+        out.setText(saludo);
     }
 
 
